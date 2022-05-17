@@ -40,4 +40,9 @@ jobs:
       run: | 
         docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/wrkflowtest:${ARTIFACT_VERSION}
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wrkflowtest:${ARTIFACT_VERSION}
+        
+    - name: deploy 
+      run: |
+        sed -i "s/IMAGETAG/${ARTIFACT_VERSION}/g" deployment.yaml
+        cat deployment.yaml
     

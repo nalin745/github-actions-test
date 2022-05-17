@@ -3,10 +3,12 @@ name: manual actions
 on:
   workflow_dispatch:
     inputs: 
-      reason: 
-        descryption: 'Why manually'
-        required: true 
-
+      deploy:
+        type: boolean
+        default: false
+        required: false
+        description: checking dispatch 
+        
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,4 +23,6 @@ jobs:
         distribution: 'temurin'
         cache: maven
     - name: Build with Maven
-      run: mvn package 
+      run: mvn package
+      if: ( github.event.inputs.deploy == 'true' && success() )
+      

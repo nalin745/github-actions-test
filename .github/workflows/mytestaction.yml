@@ -30,8 +30,14 @@ jobs:
       with:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-    - name: Build and push
-      uses: docker/build-push-action@v3
-      with:
-        push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/wrkflowtest:latest
+    - name: generate tag
+      run: | 
+        export TIME_STAMP=$(date +%Y%m%d-%H%M)
+        echo "ARTIFACT_VERSION=${TIME_STAMP}" > ${GITHUB_ENV}
+        echo $ARTIFACT_VERSION
+        
+    - name: build
+      run: | 
+        docker build . -t ${{ secrets.DOCKER_HUB_USERNAME }}/wrkflowtest:${ARTIFACT_VERSION}
+        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/wrkflowtest:${ARTIFACT_VERSION}
+    

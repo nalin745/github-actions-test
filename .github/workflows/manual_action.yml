@@ -2,6 +2,10 @@ name: manual actions
 
 on:
   workflow_dispatch:
+    inputs: 
+      reason: 
+        descryption: 'Why manually'
+        required: true 
 
 jobs:
   build:

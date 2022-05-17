@@ -1,0 +1,15 @@
+
+name: main-workflow
+
+on:
+  push:
+    branches: [ main ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build with Maven
+      run: |
+        echo "Hi testing buddy" 
+        echo "check one"

@@ -6,7 +6,7 @@ on:
       deploy:
         type: boolean
         default: false
-        required: false
+        required: true
         description: checking dispatch 
         
 jobs:

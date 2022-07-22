@@ -7,7 +7,7 @@ on:
         required: true
         type: choice
         options:
-          - 43.205.113.229
+          - self_hosted
       deploy:
         type: boolean
         default: false

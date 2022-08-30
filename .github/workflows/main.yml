@@ -1,5 +1,5 @@
 
-name: main-workflow
+name: main- curl ow
 
 on:
   push:
@@ -13,3 +13,4 @@ jobs:
       run: |
         echo "Hi testing buddy" 
         echo "check one"
+        curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/nalin745/test-helm/dispatches --data '{"event_type": "build_application\"}'

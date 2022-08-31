@@ -19,5 +19,5 @@ jobs:
       - name: Build with Maven
         run: |
           echo "Hi testing buddy" 
-          echo "check one"
+          echo "check oone"
         

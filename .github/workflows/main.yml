@@ -9,8 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Triger test helm repo workflow
+      uses: convictional/trigger-workflow-and-wait@v1.3.0
+        with:
+          owner: nalin745
+          repo: test-helm
+          github_token: ${{ secrets.PAT_ACCESS_TOKEN }}
+          workflow_file_name: gradle.yml
+          ref: main
     - name: Build with Maven
       run: |
         echo "Hi testing buddy" 
         echo "check one"
-        curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/nalin745/test-helm/dispatches --data '{"event_type": "build_application\"}'
+        

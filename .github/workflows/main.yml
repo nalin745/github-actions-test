@@ -11,7 +11,7 @@ jobs:
     steps: 
       - name: trigger wkflw
         run: |
-          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/nalin745/test-heml/dispatches --data '{"event_type": "build_application", "ref": "develop"}'
+          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/nalin745/test-helm/actions/workflows/gradle.yml/dispatches --data '{"event_type": "build_application", "ref": "develop"}'
           
 
       - name: Build with Maven

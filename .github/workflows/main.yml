@@ -14,7 +14,7 @@ jobs:
         with:
           owner: nalin745
           repo: test-helm
-          github_token: ${{ secrets.PAT_ACCESS_TOKEN }}
+          github_token: ${{ secrets.PAT_TOKEN }}
           workflow_file_name: gradle.yml
           ref: main
     - name: Build with Maven

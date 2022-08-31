@@ -16,7 +16,7 @@ jobs:
           repo: test-helm
           github_token: ${{ secrets.PAT_TOKEN }}
           workflow_file_name: gradle.yml
-          ref: main
+        
     - name: Build with Maven
       run: |
         echo "Hi testing buddy" 

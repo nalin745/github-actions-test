@@ -9,13 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps: 
-      - uses: convictional/trigger-workflow-and-wait@v1.6.1
-        with:
-          owner: ${{ secrets.PAT_USERNAME}}
-          repo: test-helm
-          github_token: ${{ secrets.PAT_TOKEN }}
-          workflow_file_name: gradle.yml
-          ref: develop
+      - name: trigger wkflw
+        run: |
+          curl -XPOST -u "${{ secrets.PAT_USERNAME}}:${{secrets.PAT_TOKEN}}" -H "Accept: application/vnd.github.everest-preview+json" -H "Content-Type: application/json" https://api.github.com/repos/nalin745/test-heml/dispatches --data '{"event_type": "build_application"}'
+          
 
       - name: Build with Maven
         run: |

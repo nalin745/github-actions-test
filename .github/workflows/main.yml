@@ -1,5 +1,5 @@
 
-name: main- curl ow
+name: main- curl
 
 on:
   push:

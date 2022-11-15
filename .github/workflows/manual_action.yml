@@ -7,7 +7,7 @@ on:
       #  required: true
        # type: choice
        # options:
-          - self-hosted
+        #  - self-hosted
       #deploy:
         #type: boolean
         #default: false

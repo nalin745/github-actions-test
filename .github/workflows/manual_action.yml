@@ -2,17 +2,17 @@ name: manual actions
 
 on:
   workflow_dispatch:
-    inputs:
-      runsOn:
-        required: true
-        type: choice
-        options:
+    #inputs:
+      #unsOn:
+      #  required: true
+       # type: choice
+       # options:
           - self-hosted
-      deploy:
-        type: boolean
-        default: false
-        required: true
-        description: checking dispatch 
+      #deploy:
+        #type: boolean
+        #default: false
+        #required: true
+        #description: checking dispatch 
         
 jobs:
   build:

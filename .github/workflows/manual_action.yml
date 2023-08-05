@@ -16,6 +16,8 @@ on:
         
 jobs:
   build:
+    if: github.actor == 'thataj5' #|| github.actor == 'nalin745'
+  
     runs-on: ubuntu-latest
     #runs-on: ${{ github.event.inputs.runsOn }}
    

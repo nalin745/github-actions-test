@@ -16,7 +16,8 @@ on:
         
 jobs:
   build:
-    runs-on: ${{ github.event.inputs.runsOn }}
+    runs-on: ubuntu-latest
+    #runs-on: ${{ github.event.inputs.runsOn }}
    
     steps: 
     - name: Configure AWS credentials
@@ -37,5 +38,5 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn package
-      if: ( github.event.inputs.deploy == 'true' && success() )
+      #if: ( github.event.inputs.deploy == 'true' && success() )
       
